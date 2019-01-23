@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+
+<html lang="en-US" dir="ltr" xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="utf-8">
+<link href="https://fonts.googleapis.com/css?family=Open+Sans:400,600|Roboto" rel="stylesheet">
+<title>$enpai Kawaii</title>
+<link rel="stylesheet" th:href="@{/css/navbar.css}"/>
+<link rel="stylesheet" type="text/css" th:href="@{/css/foundation.css}" />
+<link rel="stylesheet" type="text/css" th:href="@{/css/login-style.css}" />
+<link rel="icon" type="image/png" th:href="@{/images/snpk-icon.png}" />
+</head>
+
+<body class="senpai">
+    
+    <div class="main">
+        <header class="top-header">
+            <nav th:replace="fragments/general.html :: navbar"></nav>
+        </header>
+        <div class="outer-wrapper auth">
+            <div align="center" th:if="${param.logout}">
+                <p>You have succesfully logged out</p>
+            </div>
+            <div id="logbox" class="form-container">
+                <div class="inner-form">
+                    <h1 class="sign-header">Sign In</h1>
+                    <form class="loginForm" action="#" th:action="@{/login}" method=post>
+                        
+                        <fieldset class="login register">
+                            <input id="usernameField"
+                                class="form_textInput" type="text"
+                                name="username" placeholder="Username">
+                        </fieldset>
+                        
+                        <fieldset class="login register">
+                            <input id="passwordField"
+                                class="form_textInput" type="password"
+                                name="password" placeholder="Password">
+                        </fieldset>
+                        
+                        <div align="center" th:if="${param.error}">
+                            <p style="font-size: 20; color: #FF1C19;">Username or Password invalid, please verify</p>
+                        </div>
+                        <fieldset class="login register">
+                            <button class="loginButton" type="submit">Sign In</button>
+                        </fieldset>
+                        
+                    </form>
+                    <div class="reg-wrapper">
+                        <a class="reg-link" th:href="@{/register}" rel="nofollow">Create an account</a>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </div>
+    
+    
+    <script src="http://code.jquery.com/jquery-2.0.0.min.js" type="text/javascript"></script>
+    <script th:src="@{/js/util.js}" type="text/javascript"></script>
+</body>
+</html>
+
+                

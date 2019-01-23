@@ -1,0 +1,77 @@
+@charset "UTF-8";
+
+::-moz-focus-inner {
+    border: 0;
+}
+
+* {
+    box-sizing: border-box;
+}
+
+body *, body *:before, body *:after {
+    box-sizing: inherit
+}
+
+html, body {
+    font-family: 'Open Sans', 'Roboto', sans-serif;
+    font-size: 14px;
+    line-height: 1.35;
+    min-height: 100vh;
+    color:#fff;
+    /* 
+    background:#162633;
+    background: rgba(47, 79, 79, 0.8);
+    background: rgb(38, 38, 43);
+    */
+    
+}
+
+body, div, iframe, button, fieldset {
+    border: 0;
+    margin: 0;
+    padding: 0;
+}
+.senpai{
+    height:100vh;
+    background: rgb(38, 38, 43);
+}
+
+.main{
+    margin:auto;
+    display:block;
+}
+
+input::placeholder {
+    color: rgb(255, 255, 255);
+    font-weight: 600;
+    font-size: 10px;
+    letter-spacing: .5px;
+    text-transform: uppercase;
+}
+
+input:focus {
+    border:2px solid rgb(26,115,232);
+}
+
+button {
+    outline:none;
+    cursor: pointer;
+}
+
+button:hover{
+    box-shadow: 0 0 2px black;
+}
+
+a, a:link, a:hover, a:focus, a:active, a:visited {
+    color: #fff;
+    text-decoration:none;
+}
+
+.outer-wrapper{
+    padding:36px 16px 24px;
+    display:block;
+    width:1400px;
+    height:auto;
+    margin:auto;
+}
+

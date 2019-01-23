@@ -1,0 +1,22 @@
+@charset "utf-8";
+
+.main{
+    height:100vh;
+}
+table.movies th{
+    font-size:20px;
+    padding-bottom:15px;
+    text-align:left;
+    vertical-align:bottom;
+}
+
+table.movies td{
+    font-size:15px;
+    padding-right:20px;
+    padding-bottom:20px;
+}
+
+.movies{
+    margin:auto;
+}
+

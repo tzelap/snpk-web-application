@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+
+<html lang="en-US" dir="ltr" xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="utf-8">
+<link href="https://fonts.googleapis.com/css?family=Open+Sans:400,600|Roboto" rel="stylesheet">
+<title>$enpai Kawaii</title>
+<link rel="stylesheet" th:href="@{/css/navbar.css}"/>
+<link rel="stylesheet" type="text/css" th:href="@{/css/foundation.css}" />
+<link rel="stylesheet" type="text/css" th:href="@{/css/login-style.css}" />
+<link rel="icon" type="image/png" th:href="@{/images/snpk-icon.png}" />
+</head>
+
+<body class="senpai">
+    <div class="main"> 
+        <header class="top-header">
+            <nav th:replace="fragments/general.html :: navbar"></nav>
+        </header>
+        <div class="auth">
+            <div id="regbox" class="form-container reg-var">
+                <div class="inner-form">
+                    <div class="logo"></div>
+                    <h1 class="sign-header">Register</h1>
+                    <form autocomplete="off" 
+                        action="#" class="loginForm" 
+                        th:action="@{/register}" th:object="${user}"
+                        method=post role="form">
+                        
+                        <fieldset class="login register">
+                            <input id="emailField"
+                                class="form_textInput" type="text"
+                                name="email" th:field="*{email}"
+                                placeholder="Email">
+                            <label 
+                                th:if="${#fields.hasErrors('email')}"
+                                th:errors="*{email}"
+                                class="validation-message">
+                            </label>
+                        </fieldset>
+                        
+                        <fieldset class="login register">
+                            <input id="usernameField"
+                                class="form_textInput" type="text"
+                                name="username" th:field="*{username}"
+                                placeholder="Username">
+                            <label
+                                th:if="${#fields.hasErrors('username')}"
+                                th:errors="*{username}"
+                                class="validation-message">
+                            </label>
+                        </fieldset>
+                        <fieldset class="login register">
+                            <input id="passwordField"
+                                class="form_textInput" type="password"
+                                name="password" th:field="*{password}" 
+                                placeholder="Password">
+                            <label 
+                                th:if="${#fields.hasErrors('password')}"
+                                th:errors="*{password}"
+                                class="validation-message">
+                            </label>
+                        </fieldset>
+                        <fieldset class="login register">
+                            <input id="passwordConfirmField"
+                                class="form_textInput" type="password"
+                                name="passwordConfirm" th:field="*{passwordConfirm}" 
+                                placeholder="Confirm Password">
+                            <label 
+                                th:if="${#fields.hasErrors('passwordConfirm')}"
+                                th:errors="*{password}"
+                                class="validation-message">
+                            </label>
+                        </fieldset>
+                        <fieldset class="login register">
+                            <input id="firstnameField"
+                                class="form_textInput" type="text"
+                                name="firstname" th:field="*{firstname}"
+                                placeholder="First Name (optional)">
+                            <label
+                                th:if="${#fields.hasErrors('firstname')}"
+                                th:errors="*{firstname}"
+                                class="validation-message">
+                            </label>
+                        </fieldset>
+                        <fieldset class="login register">
+                            <input id="lastnameField"
+                                class="form_textInput" type="text"
+                                name="lastname" th:field="*{lastname}"
+                                placeholder="Last Name (optional)">
+                            <label
+                                th:if="${#fields.hasErrors('lastname')}"
+                                th:errors="*{lastname}"
+                                class="validation-message">
+                            </label>
+                        </fieldset>
+                        <fieldset class="login register">
+                            <button class="loginButton" type="submit">
+                                Register User</button>
+                        </fieldset>
+                        <span th:utext="${successMessage}"></span>
+                    </form>
+                </div>
+
+            </div>
+        </div>
+    </div>
+    
+    
+    <script src="http://code.jquery.com/jquery-2.0.0.min.js" type="text/javascript"></script>
+    <script th:src="@{js/util.js}" type="text/javascript"></script>
+</body>
+</html>
+
+                

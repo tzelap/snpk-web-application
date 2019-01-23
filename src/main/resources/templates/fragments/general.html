@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en-US" dir="ltr" xmlns:th="http://www.thymeleaf.org" xmlns:sec="http://www.thymeleaf.org/extras/spring-security">
+<head th:fragment="navfiles">
+<meta charset="UTF-8" />
+<link th:href="@{/css/navbar.css}" rel="stylesheet">
+</head>
+<body>
+    <nav th:fragment="navbar" id="bluebar2star">
+        <div class="menu">
+            <div class="logo-wrapper">
+                <a class="logo" th:href="@{/}"></a>
+            </div>
+            <div class="account-inf-wrapper">
+                <div class="login-wrapper" sec:authorize="isAnonymous()" >
+                    <a class="log-link" th:href="@{/login}" rel="nofollow">Login</a>
+                </div>
+                
+                <div class="profile-wrapper" sec:authorize="isAuthenticated()" >
+                    <a class="profile-link" th:utext="${userName}">
+                        <i class="caret-down"></i>
+                    </a>      
+                    <div class="profile-dropdown" style="display:none;">
+                        <ul>
+                            <li>
+                                <a th:href="@{'/profile/'+${userName}}">Profile</a>
+                            </li>
+                            <li>
+                                <a th:href="@{/logout}">Logout</a>
+                            </li>
+                            
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </nav>
+</body>
+</html>
