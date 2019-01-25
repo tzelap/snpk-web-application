@@ -1,15 +1,16 @@
 <!DOCTYPE html>
 <html lang="en-US" dir="ltr" xmlns:th="http://www.thymeleaf.org" xmlns:sec="http://www.thymeleaf.org/extras/spring-security">
-<head>
-<meta charset="utf-8">
-<title>Darina Button</title>
+<head th:replace="fragments/general.html :: commonHeader(~{::title},~{::link})">
+<title>Admin Home</title>
 <link rel="stylesheet" type="text/css" th:href="@{/admin/s3/css/admin-home.css}" />
-<link rel="icon" type="image/png" th:href="@{/images/snpk-icon.png}" />
 </head>
 <body class="activity-stream">
     <div id="root">
+        <header class="top-header">
+            <nav th:replace="fragments/general.html :: navbarFragment"></nav>
+        </header>
         <div>
-        <span th:utext="${userName}"></span>
+        <span th:utext="${loggedInUserName}"></span>
             <div class="outer-wrapper only-button">
                 <main>
                     <div class="non-collapsible-section">

@@ -16,8 +16,8 @@ public class RatingId implements Serializable {
     private static final long serialVersionUID = 1L;
 
     @ManyToOne(fetch = FetchType.LAZY)
-    @JoinColumn(name = "movie_id", referencedColumnName = "id")
-    private Movie movie;
+    @JoinColumn(name = "media_id", referencedColumnName = "id")
+    private Media media;
     
     @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "user_id", referencedColumnName = "id")
@@ -27,9 +27,9 @@ public class RatingId implements Serializable {
         
     }
     
-    public RatingId(User user, Movie movie) {
+    public RatingId(User user, Media media) {
         this.user = user;
-        this.movie = movie;
+        this.media = media;
     }
     
     public User getUser() {
@@ -40,19 +40,19 @@ public class RatingId implements Serializable {
         this.user = user;
     }
     
-    public Movie getMovie() {
-        return movie;
+    public Media getMedia() {
+        return media;
     }
     
-    public void setMovie(Movie movie) {
-        this.movie = movie;
+    public void setMediaItem(Media media) {
+        this.media = media;
     }
 
     @Override
     public int hashCode() {
         final int prime = 31;
         int result = 1;
-        result = prime * result + ((movie == null) ? 0 : movie.hashCode());
+        result = prime * result + ((media == null) ? 0 : media.hashCode());
         result = prime * result + ((user == null) ? 0 : user.hashCode());
         return result;
     }
@@ -66,10 +66,10 @@ public class RatingId implements Serializable {
         if (getClass() != obj.getClass())
             return false;
         RatingId other = (RatingId) obj;
-        if (movie == null) {
-            if (other.movie != null)
+        if (media == null) {
+            if (other.media != null)
                 return false;
-        } else if (!movie.equals(other.movie))
+        } else if (!media.equals(other.media))
             return false;
         if (user == null) {
             if (other.user != null)

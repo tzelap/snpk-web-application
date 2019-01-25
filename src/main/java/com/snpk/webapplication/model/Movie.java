@@ -2,16 +2,19 @@ package com.snpk.webapplication.model;
 
 import java.util.Set;
 
+import javax.persistence.DiscriminatorValue;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.OneToMany;
+import javax.persistence.Table;
 import javax.validation.constraints.NotNull;
 
 @Entity
-public class Movie {
-    
+@DiscriminatorValue(value = "Movie")
+public class Movie extends Media{
+    /*
     @Id
     @GeneratedValue(strategy=GenerationType.IDENTITY)
     private Long id;
@@ -21,40 +24,10 @@ public class Movie {
     
     @OneToMany(mappedBy = "ratingId.movie")
     private Set<Rating> ratings;
+    */
     
-    public Movie() {
-        
-    }
     
-    public Movie(Long id, String name) {
-        this.id = id;
-        this.name = name;
-    }
     
-    public Long getId() {
-        return id;
-    }
-
-    public void setId(Long id) {
-        this.id = id;
-    }
-
-    public String getName() {
-        return name;
-    }
-
-    public void setName(String name) {
-        this.name = name;
-    }
-    
-    public Set<Rating> getRatings() {
-        return ratings;
-    }
-
-    public void setRatings(Set<Rating> ratings) {
-        this.ratings = ratings;
-    }
-
     @Override
     public int hashCode() {
         final int prime = 31;

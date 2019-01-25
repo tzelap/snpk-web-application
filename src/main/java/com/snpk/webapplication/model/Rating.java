@@ -4,8 +4,10 @@ import java.math.BigDecimal;
 
 import javax.persistence.EmbeddedId;
 import javax.persistence.Entity;
+import javax.persistence.Table;
 
 @Entity
+@Table(name = "RATING")
 public class Rating {
     
     /*

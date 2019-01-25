@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="en-US" dir="ltr" xmlns:th="http://www.thymeleaf.org">
+<head th:replace="fragments/general.html :: commonHeader(~{::title},~{::link})">
+<title>PAGE NOT FOUND</title>
+<link rel="stylesheet" type="text/css" th:href="@{/admin/s3/css/admin-style.css}"/>
+</head>
+
+<body class="senpai">
+    <div class="main">
+        <header class="top-header">
+            <nav th:replace="fragments/general.html :: navbarFragment"></nav>
+        </header>
+        <div class="outer-wrapper">
+            <span><strong>This page isn't available</strong></span>
+        </div>
+    </div>
+    <script src="http://code.jquery.com/jquery-2.0.0.min.js" type="text/javascript"></script>
+    <script th:src="@{/js/util.js}" type="text/javascript"></script>
+</body>
+</html>

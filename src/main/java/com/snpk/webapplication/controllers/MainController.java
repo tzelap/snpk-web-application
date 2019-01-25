@@ -33,16 +33,12 @@ public class MainController {
         return "admin/home";
     }
     
-    @GetMapping("/profile/{userName}")
-    public String userInfo(@PathVariable("userName") String userName) {
-        if(userService.findByUsername(userName) == null) {
-            return "redirect:/profile/notFound";
+    @GetMapping("/profile/{profileUserName}")
+    public String userInfo(@PathVariable("profileUserName") String profileUserName, Model model) {
+        if(userService.findByUsername(profileUserName) == null) {
+            return "error";
         }
+        model.addAttribute("profileUserName", profileUserName);
         return "profile/userInfo";
-    }
-    
-    @GetMapping("/profile/notFound")
-    public String userNotFound() {
-        return "profile/notFound";
     }
 }

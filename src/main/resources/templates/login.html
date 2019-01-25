@@ -1,21 +1,15 @@
 <!DOCTYPE html>
-
 <html lang="en-US" dir="ltr" xmlns:th="http://www.thymeleaf.org">
-<head>
-<meta charset="utf-8">
-<link href="https://fonts.googleapis.com/css?family=Open+Sans:400,600|Roboto" rel="stylesheet">
-<title>$enpai Kawaii</title>
-<link rel="stylesheet" th:href="@{/css/navbar.css}"/>
-<link rel="stylesheet" type="text/css" th:href="@{/css/foundation.css}" />
+<head th:replace="fragments/general.html :: commonHeader(~{::title},~{::link})">
+<title>$npk</title>
 <link rel="stylesheet" type="text/css" th:href="@{/css/login-style.css}" />
-<link rel="icon" type="image/png" th:href="@{/images/snpk-icon.png}" />
 </head>
 
 <body class="senpai">
     
     <div class="main">
         <header class="top-header">
-            <nav th:replace="fragments/general.html :: navbar"></nav>
+            <nav th:replace="fragments/general.html :: navbarFragment"></nav>
         </header>
         <div class="outer-wrapper auth">
             <div align="center" th:if="${param.logout}">

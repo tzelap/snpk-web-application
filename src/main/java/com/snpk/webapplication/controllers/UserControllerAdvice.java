@@ -19,7 +19,7 @@ public class UserControllerAdvice {
         Boolean isAdmin = request.isUserInRole("ADMIN");
         if(principal != null) {
             String userName = principal.getName();
-            model.addAttribute("userName", userName);
+            model.addAttribute("loggedInUserName", userName);
             model.addAttribute("isAdmin", isAdmin);
         }
     }

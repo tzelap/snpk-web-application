@@ -1,11 +1,20 @@
 <!DOCTYPE html>
 <html lang="en-US" dir="ltr" xmlns:th="http://www.thymeleaf.org" xmlns:sec="http://www.thymeleaf.org/extras/spring-security">
-<head th:fragment="navfiles">
+
+<head th:fragment="commonHeader(title,links)">
 <meta charset="UTF-8" />
-<link th:href="@{/css/navbar.css}" rel="stylesheet">
+<title th:replace="${title}">The awesome application</title>
+<link rel="stylesheet" th:href="@{https://fonts.googleapis.com/css?family=Open+Sans:400,600|Roboto}"/>
+<link rel="stylesheet" type="text/css" th:href="@{/css/navbar.css}"/>
+<link rel="stylesheet" type="text/css" th:href="@{/css/foundation.css}"/>
+<link rel="stylesheet" type="text/css" th:href="@{/css/main-style.css}"/>
+<link rel="icon" type="image/png" th:href="@{/images/snpk-icon.png}"/>
+
+<th:block th:replace="${links}"/>
 </head>
+
 <body>
-    <nav th:fragment="navbar" id="bluebar2star">
+    <nav th:fragment="navbarFragment" id="bluebar2star">
         <div class="menu">
             <div class="logo-wrapper">
                 <a class="logo" th:href="@{/}"></a>
@@ -16,13 +25,13 @@
                 </div>
                 
                 <div class="profile-wrapper" sec:authorize="isAuthenticated()" >
-                    <a class="profile-link" th:utext="${userName}">
+                    <a class="profile-link" th:utext="${loggedInUserName}">
                         <i class="caret-down"></i>
                     </a>      
                     <div class="profile-dropdown" style="display:none;">
                         <ul>
                             <li>
-                                <a th:href="@{'/profile/'+${userName}}">Profile</a>
+                                <a th:href="@{'/profile/'+${loggedInUserName}}">Profile</a>
                             </li>
                             <li>
                                 <a th:href="@{/logout}">Logout</a>
