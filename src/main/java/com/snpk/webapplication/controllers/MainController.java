@@ -8,7 +8,7 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 
-import com.snpk.webapplication.repository.MovieRepository;
+import com.snpk.webapplication.repository.MediaRepository;
 import com.snpk.webapplication.services.UserService;
 
 
@@ -16,14 +16,14 @@ import com.snpk.webapplication.services.UserService;
 @Controller
 public class MainController {
     @Autowired
-    private MovieRepository movieRepository;
+    private MediaRepository mediaRepository;
     
     @Autowired
     private UserService userService;
     
     @GetMapping("/")
     public String home(Model model) {
-        List<Object[]> results = movieRepository.findAllMoviesGroupedByNameDescScore();
+        List<Object[]> results = mediaRepository.findAllMediaGroupedByNameDescScore();
         model.addAttribute("movieRatings", results);
         return "index";
     }

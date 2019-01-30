@@ -6,28 +6,24 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
-import javax.persistence.ManyToMany;
+import javax.persistence.OneToMany;
+import javax.validation.constraints.NotNull;
 
 @Entity
-public class Privilege {
-
+public abstract class Person {
+    
     @Id
     @GeneratedValue(strategy=GenerationType.IDENTITY)
     private Long id;
- 
+    
+    @NotNull
     private String name;
- 
-    @ManyToMany(mappedBy = "privileges")
-    private Set<Role> roles;
     
-    public Privilege() {
-        
-    }
+    @OneToMany(mappedBy = "person")
+    private Set<MediaCredit> createdWorks;
     
-    public Privilege(String name) {
-        this.name = name;
-    }
-    
+    public Person() {}
+
     public Long getId() {
         return id;
     }
@@ -44,12 +40,12 @@ public class Privilege {
         this.name = name;
     }
 
-    public Set<Role> getRoles() {
-        return roles;
+    public Set<MediaCredit> getCreatedWorks() {
+        return createdWorks;
     }
 
-    public void setRoles(Set<Role> _roles) {
-        this.roles = _roles;
+    public void setCreatedWorks(Set<MediaCredit> createdWorks) {
+        this.createdWorks = createdWorks;
     }
 
     @Override
@@ -57,7 +53,7 @@ public class Privilege {
         final int prime = 31;
         int result = 1;
         result = prime * result + ((id == null) ? 0 : id.hashCode());
-        result = prime * result + ((name == null) ? 0 : name.hashCode());
+        result = prime * result + "person".hashCode();
         return result;
     }
 
@@ -69,17 +65,14 @@ public class Privilege {
             return false;
         if (getClass() != obj.getClass())
             return false;
-        Privilege other = (Privilege) obj;
+        Person other = (Person) obj;
         if (id == null) {
             if (other.id != null)
                 return false;
         } else if (!id.equals(other.id))
             return false;
-        if (name == null) {
-            if (other.name != null)
-                return false;
-        } else if (!name.equals(other.name))
-            return false;
         return true;
     }
+    
+    
 }

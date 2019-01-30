@@ -9,7 +9,6 @@ import javax.validation.constraints.NotNull;
 
 
 @Entity
-@Table(name = "USER")
 public class User{
 
     @Id
@@ -40,9 +39,7 @@ public class User{
 
     
 
-    public User() {
-        
-    }
+    public User() {}
     
     public User(Long id, String firstname, String lastname, String username, String password) {
         this.id = id;

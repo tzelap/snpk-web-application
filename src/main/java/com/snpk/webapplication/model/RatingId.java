@@ -23,9 +23,7 @@ public class RatingId implements Serializable {
     @JoinColumn(name = "user_id", referencedColumnName = "id")
     private User user;
     
-    public RatingId() {
-        
-    }
+    public RatingId() {}
     
     public RatingId(User user, Media media) {
         this.user = user;
@@ -44,7 +42,7 @@ public class RatingId implements Serializable {
         return media;
     }
     
-    public void setMediaItem(Media media) {
+    public void setMedia(Media media) {
         this.media = media;
     }
 

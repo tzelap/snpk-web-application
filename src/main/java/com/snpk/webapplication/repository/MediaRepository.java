@@ -6,14 +6,15 @@ import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.jpa.repository.Query;
 import org.springframework.stereotype.Repository;
 
-import com.snpk.webapplication.model.Movie;
+import com.snpk.webapplication.model.Media;
 
 @Repository("movieRepository")
-public interface MovieRepository extends JpaRepository<Movie, Long>{
+public interface MediaRepository extends JpaRepository<Media, Long>{
     @Query("SELECT m.name, AVG(r.score)" 
-            + " FROM Movie m"
+            + " FROM Media m"
             + " JOIN m.ratings r"
             + " GROUP BY m.name"
             + " ORDER BY r.score DESC")
-    public List<Object[]> findAllMoviesGroupedByNameDescScore();
+    public List<Object[]> findAllMediaGroupedByNameDescScore();
+    Media findByName(String name);
 }

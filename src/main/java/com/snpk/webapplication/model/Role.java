@@ -5,7 +5,6 @@ import java.util.Set;
 import javax.persistence.*;
 
 @Entity
-@Table(name = "ROLE")
 public class Role {
     @Id
     @GeneratedValue(strategy=GenerationType.IDENTITY)
@@ -23,9 +22,7 @@ public class Role {
         inverseJoinColumns = @JoinColumn(name = "privilege_id", referencedColumnName = "id"))
     private Set<Privilege> privileges;
 
-    public Role() {
-
-    }
+    public Role() {}
 
     public Role(String role) {
         this.role = role;

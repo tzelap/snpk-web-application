@@ -4,10 +4,8 @@ import java.math.BigDecimal;
 
 import javax.persistence.EmbeddedId;
 import javax.persistence.Entity;
-import javax.persistence.Table;
 
 @Entity
-@Table(name = "RATING")
 public class Rating {
     
     /*
@@ -15,8 +13,6 @@ public class Rating {
      */
     @EmbeddedId
     private RatingId ratingId;
-
-    
 
     private BigDecimal score;
     /*
@@ -30,9 +26,7 @@ public class Rating {
     @JoinColumn(name = "user_id", insertable = false, updatable = false)
     private User reviewer;
     */
-    public Rating() {
-
-    }
+    public Rating() {}
 
     public Rating(RatingId ratingId, BigDecimal score /* ,Movie movReviewed, User reviewer */) {
         this.ratingId = ratingId;
@@ -59,6 +53,6 @@ public class Rating {
     
     @Override
     public String toString() {
-        return String.format("Rating [user= %s, movie= %s, score= %s]", ratingId.getUser().getUsername(), ratingId.getMovie().getName(), score);
+        return String.format("Rating [user= %s, movie= %s, score= %s]", ratingId.getUser().getUsername(), ratingId.getMedia().getName(), score);
     }
 }
