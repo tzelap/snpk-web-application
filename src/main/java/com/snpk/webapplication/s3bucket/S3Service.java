@@ -1,4 +1,4 @@
-package com.snpk.webapplication.services;
+package com.snpk.webapplication.s3bucket;
 
 import java.net.URL;
 

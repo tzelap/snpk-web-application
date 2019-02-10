@@ -1,4 +1,4 @@
-package com.snpk.webapplication.services;
+package com.snpk.webapplication.user;
 
 import java.util.HashSet;
 
@@ -14,8 +14,6 @@ import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
 import com.snpk.webapplication.model.Role;
-import com.snpk.webapplication.model.User;
-import com.snpk.webapplication.repository.UserRepository;
 
 @Service
 public class UserDetailsServiceImpl implements UserDetailsService {

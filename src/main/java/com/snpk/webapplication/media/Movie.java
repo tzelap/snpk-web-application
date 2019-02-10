@@ -1,9 +1,11 @@
-package com.snpk.webapplication.model;
+package com.snpk.webapplication.media;
 
 import javax.persistence.DiscriminatorValue;
 import javax.persistence.Entity;
 import javax.persistence.EnumType;
 import javax.persistence.Enumerated;
+
+import org.springframework.stereotype.Component;
 
 
 @Entity

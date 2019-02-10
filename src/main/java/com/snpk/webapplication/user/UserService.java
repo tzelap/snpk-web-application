@@ -1,7 +1,4 @@
-package com.snpk.webapplication.services;
-
-import com.snpk.webapplication.model.User;
-
+package com.snpk.webapplication.user;
 
 public interface UserService {
 

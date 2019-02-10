@@ -1,4 +1,4 @@
-package com.snpk.webapplication.model;
+package com.snpk.webapplication.user;
 
 import java.util.Set;
 
@@ -6,6 +6,9 @@ import javax.persistence.*;
 import javax.validation.constraints.Email;
 import javax.validation.constraints.NotEmpty;
 import javax.validation.constraints.NotNull;
+
+import com.snpk.webapplication.model.Rating;
+import com.snpk.webapplication.model.Role;
 
 
 @Entity
@@ -36,8 +39,6 @@ public class User{
         joinColumns = @JoinColumn(name = "user_id", referencedColumnName = "id"),                                 
         inverseJoinColumns = @JoinColumn(name = "role_id", referencedColumnName = "id"))
     private Set<Role> roles;
-
-    
 
     public User() {}
     

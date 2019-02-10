@@ -1,9 +1,7 @@
-package com.snpk.webapplication.repository;
+package com.snpk.webapplication.user;
 
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
-
-import com.snpk.webapplication.model.User;
 
 @Repository("userRepository")
 public interface UserRepository extends JpaRepository<User, Long> {

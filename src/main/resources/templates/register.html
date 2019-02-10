@@ -1,6 +1,6 @@
 <!DOCTYPE html>
 <html lang="en-US" dir="ltr" xmlns:th="http://www.thymeleaf.org">
-<head th:replace="fragments/general.html :: commonHeader(~{::title}',~{::link})">
+<head th:replace="fragments/general.html :: commonHeader(~{::title},~{::link})">
 <title>$npk</title>
 <link rel="stylesheet" type="text/css" th:href="@{/css/login-style.css}"/>
 </head>
@@ -10,10 +10,9 @@
         <header class="top-header">
             <nav th:replace="fragments/general.html :: navbarFragment"></nav>
         </header>
-        <div class="auth">
-            <div id="regbox" class="form-container reg-var">
+        <div class="outer-wrapper auth">
+            <div id="regbox" class="form-container">
                 <div class="inner-form">
-                    <div class="logo"></div>
                     <h1 class="sign-header">Register</h1>
                     <form autocomplete="off" 
                         action="#" class="loginForm" 

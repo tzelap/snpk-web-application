@@ -1,4 +1,4 @@
-package com.snpk.webapplication.services;
+package com.snpk.webapplication.user;
 
 import java.util.Arrays;
 import java.util.HashSet;
@@ -10,10 +10,8 @@ import org.springframework.stereotype.Service;
 
 import com.snpk.webapplication.model.Privilege;
 import com.snpk.webapplication.model.Role;
-import com.snpk.webapplication.model.User;
 import com.snpk.webapplication.repository.PrivilegeRepository;
 import com.snpk.webapplication.repository.RoleRepository;
-import com.snpk.webapplication.repository.UserRepository;
 
 @Service
 public class UserServiceImpl implements UserService{

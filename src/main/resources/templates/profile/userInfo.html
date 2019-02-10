@@ -11,6 +11,28 @@
         <header class="top-header">
             <nav th:replace="fragments/general.html :: navbarFragment"></nav>
         </header> 
+        <div class="outer-wrapper ratings">
+            <table class="movies">
+                <thead>
+                    <tr>
+                        <th></th>
+                        <th>Title</th>
+                        <th>Rating</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr th:each="movie : ${movieRatings}">
+                        <td class="picture">
+                                <img src="../images/admin/darina_beach_orig.jpg"
+                                alt="darina_beach" width="105"
+                                height="140">
+                        </td>
+                        <td th:text="${movie[0]}"></td>
+                        <td th:text="${movie[1]}"></td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
     </div>
     <script src="http://code.jquery.com/jquery-2.0.0.min.js" type="text/javascript"></script>
     <script th:src="@{/js/util.js}" type="text/javascript"></script>

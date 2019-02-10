@@ -1,17 +1,19 @@
-package com.snpk.webapplication.services;
+package com.snpk.webapplication.media.services;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
 
-import com.snpk.webapplication.model.Media;
-import com.snpk.webapplication.repository.MediaRepository;
+import com.snpk.webapplication.media.Media;
+import com.snpk.webapplication.media.MediaRepository;
+import com.snpk.webapplication.media.Movie;
 
-public class MediaServiceImpl implements MediaService{
+@Service
+public class MediaServiceImpl implements MediaService {
     @Autowired
     MediaRepository mediaRepository;
-
+    
     @Override
     public void save(Media media) {
-        media.setConsumed(false);
         mediaRepository.save(media);
     }
 
@@ -19,5 +21,5 @@ public class MediaServiceImpl implements MediaService{
     public Media findByName(String name) {
         return mediaRepository.findByName(name);
     }
-    
+
 }

@@ -4,6 +4,8 @@ import java.util.Set;
 
 import javax.persistence.*;
 
+import com.snpk.webapplication.user.User;
+
 @Entity
 public class Role {
     @Id

@@ -1,10 +1,12 @@
-package com.snpk.webapplication.model;
+package com.snpk.webapplication.media;
 
 import java.time.LocalDate;
 import java.util.Set;
 
 import javax.persistence.DiscriminatorColumn;
 import javax.persistence.Entity;
+import javax.persistence.EnumType;
+import javax.persistence.Enumerated;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
@@ -13,10 +15,15 @@ import javax.persistence.InheritanceType;
 import javax.persistence.OneToMany;
 import javax.validation.constraints.NotNull;
 
+import com.snpk.webapplication.model.MediaCredit;
+import com.snpk.webapplication.model.Rating;
+
 @Entity
 @Inheritance(strategy = InheritanceType.SINGLE_TABLE)
 @DiscriminatorColumn(name = "MEDIA_TYPE")
 public abstract class Media {
+    
+    
     @Id
     @GeneratedValue(strategy=GenerationType.IDENTITY)
     private Long id;
@@ -24,11 +31,11 @@ public abstract class Media {
     @NotNull
     private String name;
     
+   
+    
     private Integer length;
     
     LocalDate releaseDate;
-    
-    private Boolean consumed;
     
     @OneToMany(mappedBy = "ratingId.media")
     private Set<Rating> ratings;
@@ -53,12 +60,13 @@ public abstract class Media {
     public void setName(String name) {
         this.name = name;
     }
+
     
     public int getLength() {
         return length;
     }
-
-    public void setLength(int length) {
+    
+    public void setLength(Integer length) {
         this.length = length;
     }
 
@@ -77,15 +85,7 @@ public abstract class Media {
     public void setReleaseDate(LocalDate releaseDate) {
         this.releaseDate = releaseDate;
     }
-
-    public Boolean getConsumed() {
-        return consumed;
-    }
-
-    public void setConsumed(Boolean consumed) {
-        this.consumed = consumed;
-    }
-
+    
     public Set<MediaCredit> getCredits() {
         return credits;
     }

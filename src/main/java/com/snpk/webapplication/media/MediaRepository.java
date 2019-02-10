@@ -1,12 +1,10 @@
-package com.snpk.webapplication.repository;
+package com.snpk.webapplication.media;
 
 import java.util.List;
 
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.jpa.repository.Query;
 import org.springframework.stereotype.Repository;
-
-import com.snpk.webapplication.model.Media;
 
 @Repository("movieRepository")
 public interface MediaRepository extends JpaRepository<Media, Long>{

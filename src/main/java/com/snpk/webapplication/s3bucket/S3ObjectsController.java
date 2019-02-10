@@ -1,4 +1,4 @@
-package com.snpk.webapplication.controllers;
+package com.snpk.webapplication.s3bucket;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.core.io.InputStreamResource;
@@ -12,7 +12,6 @@ import org.springframework.web.bind.annotation.RestController;
 import com.amazonaws.services.s3.model.ObjectMetadata;
 import com.amazonaws.services.s3.model.S3Object;
 import com.amazonaws.services.s3.model.S3ObjectInputStream;
-import com.snpk.webapplication.services.S3Service;
 
 
 @RestController

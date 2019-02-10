@@ -8,8 +8,8 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 
-import com.snpk.webapplication.repository.MediaRepository;
-import com.snpk.webapplication.services.UserService;
+import com.snpk.webapplication.media.MediaRepository;
+import com.snpk.webapplication.user.UserService;
 
 
 
@@ -26,11 +26,6 @@ public class MainController {
         List<Object[]> results = mediaRepository.findAllMediaGroupedByNameDescScore();
         model.addAttribute("movieRatings", results);
         return "index";
-    }
-    
-    @GetMapping("/admin/home")
-    public String adminHome(Model model){
-        return "admin/home";
     }
     
     @GetMapping("/profile/{profileUserName}")
