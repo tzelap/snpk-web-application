@@ -26,7 +26,7 @@ public class AuthenticationSuccessHandlerImpl implements AuthenticationSuccessHa
             }
         }
         if(isAdmin) {
-            response.sendRedirect("/admin/home");
+            response.sendRedirect("/admin/collection");
         } else {
             response.sendRedirect("/");
         }

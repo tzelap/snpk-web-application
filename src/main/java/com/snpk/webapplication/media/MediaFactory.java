@@ -1,21 +1,24 @@
 package com.snpk.webapplication.media;
 
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
-import com.snpk.webapplication.media.services.MediaService;
+import com.snpk.webapplication.media.model.Media;
+import com.snpk.webapplication.media.model.Movie;
+import com.snpk.webapplication.services.interfaces.Factory;
+
+
 
 @Component
 public class MediaFactory implements Factory<Media, MediaType> {
     
     
-    public Media buildMedia(MediaType type, String name) {
+    public Media buildMedia(MediaType type, String title) {
         Media media = null;
-        System.out.println("media factory " +type.toString());
-        
+        System.out.println("media factory " + type.toString());
+        System.out.println("media factory " + title);
         try {
             media = getObject(type);
-            media.setName(name);
+            media.setTitle(title);
         } catch (Exception e) {
             e.printStackTrace();
         }

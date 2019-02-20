@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en-US" dir="ltr" xmlns:th="http://www.thymeleaf.org" xmlns:sec="http://www.thymeleaf.org/extras/spring-security">
+<head th:replace="fragments/general.html :: commonHeader(~{::title},~{::link})">
+<title>Admin Home</title>
+<link rel="stylesheet" type="text/css" th:href="@{/admin/s3/css/admin-home.css}" />
+</head>
+<body class="senpai">
+    <div class="main">
+        <header class="top-header">
+            <nav th:replace="fragments/general.html :: navbarFragment"></nav>
+        </header>
+        <div class="outer-wrapper">
+            <div id="media-control-box" class="form-containter">
+                <div class="inner-form">
+                    <h1 class="sign-header">Search</h1>
+                    <form class="mediaForm"
+                        action="#"
+                        th:action="@{/admin/collection}"
+                        method=get role="form">
+                        
+                        <fieldset class="media-find">
+                            <input id="titleField"
+                                class="form_textInput" type="text"
+                                name="title" placeholder="Title">
+                        </fieldset>
+                        
+                        <fieldset class="media-find">
+                            <button class="mediaButton" type="submit">Search Collection</button>
+                        </fieldset>
+                    </form>
+                    
+                    <p th:if="${movie != null}" th:text="${movie.title}"></p>
+                    <p th:if="${movie != null}" th:text="${movie.plot}"></p>
+                    <p th:if="${movie != null}" th:text="${movie.mpaRating}"></p>
+                    <div th:if="${movie != null}">
+                        <form action="#" th:action="@{/admin/collection}" method=post role=form th:if="${inDb} == false">
+                            <input type="hidden" name="title" th:value="*{movie.title}" >
+                            <input type="hidden" name="imdbID" th:value="*{movie.imdbID}" >
+                            <input type="hidden" name="mpaRating" th:value="*{movie.mpaRating}" >
+                            
+                            <button class="mediaButton" type="submit">ADD</button>
+                        </form>
+                    </div>   
+                </div>
+            </div>
+        </div>
+    </div>
+    <script src="http://code.jquery.com/jquery-2.0.0.min.js" type="text/javascript"></script>
+    <script th:src="@{/js/util.js}" type="text/javascript"></script>
+</body>
+</html>

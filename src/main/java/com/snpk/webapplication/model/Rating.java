@@ -53,6 +53,6 @@ public class Rating {
     
     @Override
     public String toString() {
-        return String.format("Rating [user= %s, movie= %s, score= %s]", ratingId.getUser().getUsername(), ratingId.getMedia().getName(), score);
+        return String.format("Rating [user= %s, movie= %s, score= %s]", ratingId.getUser().getUsername(), ratingId.getMedia().getTitle(), score);
     }
 }

@@ -75,3 +75,7 @@ a, a:link, a:hover, a:focus, a:active, a:visited {
     margin:auto;
 }
 
+.validation-message{
+    font-size: 10px;
+    color: #FF1C19;
+}

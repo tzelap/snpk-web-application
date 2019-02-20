@@ -1,38 +1,41 @@
-package com.snpk.webapplication.media;
+package com.snpk.webapplication.media.model;
 
 import java.time.LocalDate;
 import java.util.Set;
+import java.util.UUID;
 
+import javax.persistence.Column;
 import javax.persistence.DiscriminatorColumn;
 import javax.persistence.Entity;
-import javax.persistence.EnumType;
-import javax.persistence.Enumerated;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.Inheritance;
 import javax.persistence.InheritanceType;
 import javax.persistence.OneToMany;
 import javax.validation.constraints.NotNull;
 
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
+import com.fasterxml.jackson.annotation.JsonProperty;
 import com.snpk.webapplication.model.MediaCredit;
 import com.snpk.webapplication.model.Rating;
 
 @Entity
 @Inheritance(strategy = InheritanceType.SINGLE_TABLE)
 @DiscriminatorColumn(name = "MEDIA_TYPE")
+@JsonIgnoreProperties(ignoreUnknown = true)
 public abstract class Media {
     
-    
     @Id
-    @GeneratedValue(strategy=GenerationType.IDENTITY)
-    private Long id;
+    @Column(nullable = false, name = "id", columnDefinition = "BINARY(16)")
+    /*
+    @GeneratedValue(generator="IdOrGenerated")
+    @GenericGenerator(name="UUIDgenerate", strategy = "com.snpk.webapplication.media.model.UUIDGenerator")
+    */
+    private UUID id;
     
     @NotNull
-    private String name;
-    
-   
-    
+    @JsonProperty("Title")
+    private String title;
+
     private Integer length;
     
     LocalDate releaseDate;
@@ -43,25 +46,27 @@ public abstract class Media {
     @OneToMany(mappedBy = "media")
     private Set<MediaCredit> credits;
     
+    @JsonProperty("Poster")
+    private String posterUrl;
+    
     public Media() {}
     
-    public Long getId() {
-        return id;
+    public String getTitle() {
+        return title;
     }
 
-    public void setId(Long id) {
+    public UUID getId() {
+        return id;
+    }
+    
+    public void setId(UUID id) {
         this.id = id;
     }
 
-    public String getName() {
-        return name;
+    public void setTitle(String title) {
+        this.title = title;
     }
 
-    public void setName(String name) {
-        this.name = name;
-    }
-
-    
     public int getLength() {
         return length;
     }
@@ -94,12 +99,20 @@ public abstract class Media {
         this.credits = credits;
     }
 
+    public String getPosterUrl() {
+        return posterUrl;
+    }
+
+    public void setPosterUrl(String posterUrl) {
+        this.posterUrl = posterUrl;
+    }
+
     @Override
     public int hashCode() {
         final int prime = 31;
         int result = 1;
         result = prime * result + ((id == null) ? 0 : id.hashCode());
-        result = prime * result + ((name == null) ? 0 : name.hashCode());
+        result = prime * result + ((title == null) ? 0 : title.hashCode());
         return result;
     }
 
@@ -117,10 +130,10 @@ public abstract class Media {
                 return false;
         } else if (!id.equals(other.id))
             return false;
-        if (name == null) {
-            if (other.name != null)
+        if (title == null) {
+            if (other.title != null)
                 return false;
-        } else if (!name.equals(other.name))
+        } else if (!title.equals(other.title))
             return false;
         return true;
     }

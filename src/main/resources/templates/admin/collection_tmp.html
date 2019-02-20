@@ -16,33 +16,48 @@
                     <form class="mediaForm" 
                         action="#" 
                         th:action="@{/admin/home}"
+                        th:object="${maRequest}"
                         method=post role="form">
                         
                         <fieldset class="media-add">
                             <legend>Media Type</legend>
+                            <label 
+                                th:if="${#fields.hasErrors('mediaType')}"
+                                th:errors="*{mediaType}"
+                                class="validation-message">
+                            </label>
                             <div th:each="medType : ${T(com.snpk.webapplication.media.MediaType).values()}">
                                 <input class="form_radioInput" type="radio" 
-                                    name="mediaType" th:value="${medType}" th:text="${medType.displayName}">
+                                    name="mediaType" th:field="*{mediaType}"
+                                    th:value="${medType}" th:text="${medType.displayName}">
                             </div>
                         </fieldset>
                         
                         <fieldset class="media-add">
                             <input id="nameField"
                                 class="form_textInput" type="text"
-                                name="name" placeholder="Name"> 
+                                name="name" th:field ="*{name}" placeholder="Name">
+                            <label
+                                th:if="${#fields.hasErrors('name')}"
+                                th:errors="*{name}"
+                                class="validation-message">
+                            </label> 
                         </fieldset>
                         
-                        <div align="center" th:if="${param.error}">
-                            <p style="font-size: 20; color: #FF1C19;">Type or Title invlaid, please verify</p>
+                        <div align="center" th:if="${#fields.hasErrors('mediaType')}">
+                            <p th:errors="*{mediaType}" style="font-size: 20; color: #FF1C19;"></p>
                         </div>
                         
                         <fieldset class="media-add">
                             <button class="mediaButton" type="submit">Add to Database</button>
                         </fieldset>
-                        
+                        <span th:utext="${successMessage}"></span>
                     </form>
                 </div>
             </div>
         </div>
     </div>
+    <script src="http://code.jquery.com/jquery-2.0.0.min.js" type="text/javascript"></script>
+    <script th:src="@{/js/util.js}" type="text/javascript"></script>
 </body>
+</html>

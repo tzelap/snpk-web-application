@@ -1,7 +1,9 @@
 @charset "UTF-8";
+
 .senpai{
     overflow:hidden;
 }
+
 .form-container{
     margin:auto;
     background: rgb(88, 88, 96);

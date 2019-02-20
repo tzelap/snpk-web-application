@@ -1,4 +1,4 @@
-package com.snpk.webapplication.controllers;
+package com.snpk.webapplication.user;
 
 import java.security.Principal;
 

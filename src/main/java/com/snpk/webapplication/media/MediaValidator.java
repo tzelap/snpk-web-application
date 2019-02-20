@@ -6,6 +6,8 @@ import org.springframework.validation.Errors;
 import org.springframework.validation.ValidationUtils;
 import org.springframework.validation.Validator;
 
+import com.snpk.webapplication.media.model.Media;
+import com.snpk.webapplication.media.model.MediaAddRequest;
 import com.snpk.webapplication.media.services.MediaService;
 
 @Component
@@ -21,11 +23,13 @@ public class MediaValidator implements Validator {
 
     @Override
     public void validate(Object target, Errors errors) {
-        Media media = (Media) target;
+        MediaAddRequest req = (MediaAddRequest) target;
         ValidationUtils.rejectIfEmptyOrWhitespace(errors, "name", "NotEmpty");
-        if(mediaService.findByName(media.getName()) != null) {
+        System.out.println(req.getName());
+        if(mediaService.findByTitle(req.getName()) != null) {
             errors.rejectValue("name", "Duplicate.media.name");
         }
+        
     }
     
    

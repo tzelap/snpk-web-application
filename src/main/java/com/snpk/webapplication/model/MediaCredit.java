@@ -11,7 +11,7 @@ import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 
-import com.snpk.webapplication.media.Media;
+import com.snpk.webapplication.media.model.Media;
 
 @Entity
 @Table(name = "media_credits")

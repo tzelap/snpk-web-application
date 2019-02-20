@@ -1,10 +1,10 @@
 package com.snpk.webapplication.media.services;
 
-import com.snpk.webapplication.media.Media;
-import com.snpk.webapplication.media.Movie;
+import com.snpk.webapplication.media.model.Media;
+import com.snpk.webapplication.media.model.Movie;
 
 public interface MediaService {
     void save(Media media);
-    Media findByName(String name);
-
+    Media findByTitle(String title);
+    Movie findMovieByImdbID(String imdbID);
 }

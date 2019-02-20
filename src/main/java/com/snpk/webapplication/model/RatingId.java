@@ -7,7 +7,7 @@ import javax.persistence.FetchType;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 
-import com.snpk.webapplication.media.Media;
+import com.snpk.webapplication.media.model.Media;
 import com.snpk.webapplication.user.User;
 
 
